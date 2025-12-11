@@ -1,3 +1,5 @@
+https://doi.org/10.5281/zenodo.17903414
+
 # Patch-Based MLP Spleen Segmentation Fusion
 
 This repository contains the inference container for our **patch-based, voxel-wise multi-layer perceptron (MLP)** that fuses multiple publicly available spleen/organ segmentation pipelines.
