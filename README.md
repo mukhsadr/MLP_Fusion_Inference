@@ -84,23 +84,23 @@ Four 9×9×9 mask patches
 
 Normalized coordinates (x, y, z)
 
-Total feature vector:
+Total feature vector:```
 
 729 (CT) + 4×729 (masks) + 3 (coords)
 
-
+```
 MLP architecture:
 
-[Input] → Linear(64) → ReLU → Linear(32) → ReLU → Linear(1) → Sigmoid
+```[Input] → Linear(64) → ReLU → Linear(32) → ReLU → Linear(1) → Sigmoid```
 
 
 
 📦 6. Container & Zenodo
-
+```
 Latest version DOI (all versions):
 
 https://doi.org/10.5281/zenodo.17903413
 
 Direct .sif download (v1.0.1):
-
-https://doi.org/10.5281/zenodo.17905193
+```
+https://doi.org/10.5281/zenodo.17905193```
