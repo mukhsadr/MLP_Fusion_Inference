@@ -27,6 +27,7 @@ A fully reproducible Apptainer/Singularity image is available on Zenodo.
 
 A complete working example is included:
 
+```
 test_case/
 ├── INPUTS/
 │ └── image.nii.gz
@@ -35,6 +36,7 @@ test_case/
 ├── DeepSpleenSeg.nii.gz
 ├── DeepMultiOrgSeg.nii.gz
 └── GennUNet_spleen.nii.gz
+```
 
 
 ### Run inference:
@@ -56,6 +58,7 @@ After running, the fused MLP segmentation is written to:
 /OUTPUTS/mlp_spleen_torch.nii.gz
 
 🧩 4. Mask Path Options
+
 Option A — Explicit list (recommended)
 --mask_paths "OUTPUTS/A.nii.gz,OUTPUTS/B.nii.gz,OUTPUTS/C.nii.gz,OUTPUTS/D.nii.gz"
 
@@ -84,23 +87,30 @@ Four 9×9×9 mask patches
 
 Normalized coordinates (x, y, z)
 
-Total feature vector:```
-
-729 (CT) + 4×729 (masks) + 3 (coords)
+Total feature vector:
 
 ```
+729 (CT) + 4×729 (masks) + 3 (coords)
+```
+
 MLP architecture:
 
-```[Input] → Linear(64) → ReLU → Linear(32) → ReLU → Linear(1) → Sigmoid```
+```
+[Input] → Linear(64) → ReLU → Linear(32) → ReLU → Linear(1) → Sigmoid
+```
 
 
 
 📦 6. Container & Zenodo
-```
+
 Latest version DOI (all versions):
 
+```
 https://doi.org/10.5281/zenodo.17903413
+```
 
 Direct .sif download (v1.0.1):
+
 ```
-https://doi.org/10.5281/zenodo.17905193```
+https://doi.org/10.5281/zenodo.17905193
+```
