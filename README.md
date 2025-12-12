@@ -46,16 +46,17 @@ Use the following command exactly as shown.
 This binds your `/home-local` directory and runs inference on a chosen case:
 
 ```
-singularity run --nv   -B /home-local:/home-local   mlp_fusion_v1.0.1.sif   --case_dir  test_case   --mask_paths "OUTPUTS/TotalSegmentator.nii.gz,OUTPUTS/DeepSpleenSeg.nii.gz,OUTPUTS/DeepMultiOrgSeg.nii.gz,OUTPUTS/GennUNet_spleen.nii.gz
+singularity run --nv  -e --contain  -B /home-local:/home-local   mlp_fusion_v1.0.1.sif   --case_dir  test_case   --mask_paths "OUTPUTS/TotalSegmentator.nii.gz,OUTPUTS/DeepSpleenSeg.nii.gz,OUTPUTS/DeepMultiOrgSeg.nii.gz,OUTPUTS/GennUNet_spleen.nii.gz
 ```
 
 
 ```bash
-singularity run --nv \
-  -B /path/to/data:/path/to/data \
+singularity run --nv -e --contain \
+  -B $PWD:$PWD \
   mlp_fusion_v1.0.1.sif \
-  --case_dir /path/to/data/case_folder \
+  --case_dir $PWD/test_case \
   --mask_paths "OUTPUTS/TotalSegmentator.nii.gz,OUTPUTS/DeepSpleenSeg.nii.gz,OUTPUTS/DeepMultiOrgSeg.nii.gz,OUTPUTS/GennUNet_spleen.nii.gz"
+
 ```
 
 After running, the fused MLP segmentation is written to:
