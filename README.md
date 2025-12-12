@@ -32,10 +32,10 @@ test_case/
 ├── INPUTS/
 │ └── image.nii.gz
 └── OUTPUTS/
-├── TotalSegmentator.nii.gz
-├── DeepSpleenSeg.nii.gz
-├── DeepMultiOrgSeg.nii.gz
-└── GennUNet_spleen.nii.gz
+├ └──TotalSegmentator.nii.gz
+├ └──DeepSpleenSeg.nii.gz
+├ └──DeepMultiOrgSeg.nii.gz
+└ └──GennUNet_spleen.nii.gz
 ```
 
 
@@ -44,6 +44,11 @@ test_case/
 
 Use the following command exactly as shown.  
 This binds your `/home-local` directory and runs inference on a chosen case:
+
+```
+singularity run --nv   -B /home-local:/home-local   mlp_fusion_v1.0.1.sif   --case_dir  test_case   --mask_paths "OUTPUTS/TotalSegmentator.nii.gz,OUTPUTS/DeepSpleenSeg.nii.gz,OUTPUTS/DeepMultiOrgSeg.nii.gz,OUTPUTS/GennUNet_spleen.nii.gz
+```
+
 
 ```bash
 ssingularity run --nv \
@@ -62,19 +67,7 @@ After running, the fused MLP segmentation is written to:
 Option A — Explicit list (recommended)
 --mask_paths "OUTPUTS/A.nii.gz,OUTPUTS/B.nii.gz,OUTPUTS/C.nii.gz,OUTPUTS/D.nii.gz"
 
-Option B — ABNL-MARRO default structure
 
-If masks live under:
-
-OUTPUTS/<PipelineName>/spleen.nii.gz
-
-
-You may run:
-
---mask_paths ""
-
-
-The script automatically loads all known pipeline directories.
 
 
 🧠 5. Model Overview
