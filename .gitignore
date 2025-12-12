@@ -1,0 +1,1 @@
+echo "mlp_fusion_v*.sif" >> .gitignore

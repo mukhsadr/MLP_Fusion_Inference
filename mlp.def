@@ -1,0 +1,33 @@
+Bootstrap: docker
+From: nvidia/cuda:12.1.0-runtime-ubuntu22.04   # GPU-enabled base image
+
+%post
+    apt-get update && apt-get install -y \
+        git wget unzip python3 python3-pip && \
+        rm -rf /var/lib/apt/lists/*
+
+    # Upgrade pip
+    pip3 install --upgrade pip
+
+    # Create working directory
+    mkdir -p /code
+    cd /code
+
+    # Install Python dependencies
+    pip3 install --no-cache-dir numpy nibabel scikit-learn tqdm matplotlib
+
+    # Install CUDA-enabled PyTorch (MATCHES your host: 2.5.1+cu121)
+    pip3 install torch==2.5.1+cu121 torchvision \
+        --extra-index-url https://download.pytorch.org/whl/cu121
+
+%files
+    ./src /code/src
+    ./models /code/models
+
+%environment
+    export PYTHONPATH=/code
+    export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
+    export CUDA_VISIBLE_DEVICES=0
+
+%runscript
+    exec python3 /code/src/main.py "$@"
