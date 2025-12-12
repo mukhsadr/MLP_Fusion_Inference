@@ -70,6 +70,9 @@ After running, the fused MLP segmentation is written to:
 
 Latest version DOI (all versions):
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17905193.svg)](https://doi.org/10.5281/zenodo.17905193)
+
+
 ```
 https://doi.org/10.5281/zenodo.17903413
 ```
